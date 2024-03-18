@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Tarea No5 Diseño de aplicaciones Web">
+    <meta name="keywords" content="HTML, Tarea, UTN">
+    <meta name="author" content="Geilyn Castro Chinchilla">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 5</title>
+    <!--Uso de link para definir el estilo-->
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <!--Uso de link para incluir un favicon-->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <header id="header">
+            <h1>Diseño de Aplicaciones Web - Tarea 5</h1>
+        </header>
+
+        <aside id="sidebar">
+            
+            <div class="entry-title"><a href="#">Referecias</a></div>
+            
+            <ul>
+                <li><a href="https://www.w3schools.com/">Referencia</a></li>
+             </ul>
+            
+            <div id="news" class="entry-title"><a href="#">Autor</a></div>
+            <a href="#"><div id="autimg"></div></a>
+            <address>
+                <i class="fas fa-building"></i>Geilyn Castro Chinchilla<br>
+				<i class="fas fa-map-marker-alt"></i>Aserrí, San Jose, Costa Rica<br>
+				<i class="fas fa-envelope"></i>Correo: 
+                <a href="mailto:info@example.com">geilyncastroc@gmail.com</a>
+            </address>
+            
+        </aside>
+
+        <main id="content">
+
+            <article class="entry">
+                <div class="entry-title"><a href="#">Documentos HTML</a></div>
+                <div class="date">29 de enero, 2024</div>
+                <p>HTM (Lenguaje de Marcas de Hipertexto) es el componente más básico de 
+                    la web. Utiliza marcas para etiquetar  texto, imagenes y otros tipos
+                    de contenido para mostrarlo en un navegador web.
+                </p>
+            </article>
+
+            <article class="entry">
+                <div class="entry-title"><a href="#">Control de flujo y manejo de errores</a></div>
+                <div class="date">10 de marzo, 2024</div>
+
+                
+                <details close>
+                    <summary>
+                        <h2>If ... Else</h2>
+                    </summary>
+                    <p>Muestre "¡Buenos días!" si la hora es previa a 18:00. Muestra buenas noches si es después de las 18:00</p>
+
+                    <p id="demo">¡Buenos días!</p>
+
+                    <script>
+                    if (new Date().getHours() >= 18) {
+                    document.getElementById("demo").innerHTML = "¡Buenas noches!";
+                    }
+                    </script>
+                </details>
+  
+                <details close>
+                    <summary>
+                        <h2>switch</h2>
+                    </summary>
+                        <p>Escriba Banana, Naranja, Fresa o Manzana en el espacio y precione el botón.</p>
+                        <p>El switch mostrara una imagen de acuerdo con la fruta indicada</p>
+
+                        <input id="myInput" type="text">
+
+                        <button onclick="myFunction()">Muestre la fruta</button>
+
+                        <div class="imagen">
+                            <img id="demo_fruta" src="" alt="">
+                        </div>
+                        
+                        <script>
+                        function myFunction() {
+                        var ruta;
+                        var fruits = document.getElementById("myInput").value;
+
+                        switch(fruits) {
+                            case "Banana":
+                            ruta = "images/Banana.jpg";
+                            break;
+                            case "Naranja":
+                            ruta = "images/Naranja.jpeg";
+                            break;
+                            case "Fresa":
+                            ruta = "images/Fresa.jpeg";
+                            break;
+                            case "Manzana":
+                            ruta = "images/Manzana.jpg";
+                            break;
+                            default:
+                            ruta = "images/NoFruit.jpg";
+                        }
+                        document.getElementById("demo_fruta").src = ruta;
+                        }
+                        </script>
+                </details>
+                
+                <details close>
+                    <summary>
+                        <h2>try/catch/throw & Objetos Error</h2>
+                    </summary>
+                    <p>Indique un número entre 5 y 10:</p>
+
+                    <input id="demo_catch" type="number">
+                    <button type="button_catch" onclick="myCatch()">Revisar</button>
+                    <p id="p01"></p>
+
+                    <script>
+                    function myCatch() {
+                    const message = document.getElementById("p01");
+                    message.innerHTML = "";
+                    let x = document.getElementById("demo_catch").value;
+                    try { 
+                        if(x.trim() == "")  throw "está vacio";
+                        if(isNaN(x)) throw "no es un número";
+                        x = Number(x);
+                        if(x < 5)  throw "es muy bajo";
+                        if(x > 10)   throw "es muy alto";
+                    }
+                    catch(err) {
+                        message.innerHTML = "El número " + err;
+                    }
+                    }
+                    </script>
+                </details>
+
+            </article>
+
+            <article class="entry">
+                <div class="entry-title"><a href="#">Bucles e iteración</a></div>
+                <div class="date">11 de marzo, 2024</div>
+
+                <details>
+                    <summary>
+                        <h2>For</h2>
+                    </summary>
+                    <p>Ejemplo del uso del ciclo for. Se recorre un arreglo de cuatro elementos usando el ciclo for:</p>
+
+                    <p id="demo_for"></p>
+
+                    <script>
+                    const arreglo = ["Elemento 1", "Elemento 2", "Elemento 3", "Elemento 4"];
+                    let i, len, text;
+                    for (i = 0, len = arreglo.length, text = ""; i < len; i++) {
+                    text += arreglo[i] + "<br>";
+                    }
+                    document.getElementById("demo_for").innerHTML = text;
+                    </script>
+
+                </details>
+
+                <details>
+                    <summary><h2>While</h2></summary>
+                    
+                        <p>Ejemplo del uso del ciclo while. Se recorre un arreglo de cuatro elementos usando el ciclo while:
+                        </p>
+                        <p id="demo_while"></p>
+
+                        <script>
+                        const arreglo_while = ["Elemento 1", "Elemento 2", "Elemento 3", "Elemento 4"];
+
+                        let i_w = 0;
+                        let text_w = "";
+                        while (arreglo_while[i_w]) {
+                        text_w += arreglo_while[i_w] + "<br>";
+                        i_w++;
+                        }
+
+                        document.getElementById("demo_while").innerHTML = text_w;
+                        </script>
+                </details>
+                
+                <details>
+                    <summary><h2>Do...while</h2></summary>
+                        <p>Uso del ciclo do while que muestra números hasta llegar a cinco:</p>
+                            
+                            <p id="demo_do"></p>
+
+                            <script>
+                            let text_do = "";
+                            let i_do = 0;
+                            do {
+                              text_do += i_do + "<br>";
+                              i_do++;
+                            }
+                            while (i_do < 6);
+                            document.getElementById("demo_do").innerHTML = text_do;
+                            </script>
+                    
+                </details>
+
+            <article class="entry">
+                <div class="entry-title"><a href="#">Definir funciones, llamar funciones, asignación y comparación, operadorades aritméticos, operadores lógicos, Objecto Math y Objeto Number</a></div>
+                <div class="date">31 de enero, 2024</div>
+
+                <details>
+                    <summary><h2>Calculadora básica</h2></summary>
+                    <p>Llama a la función que multiplica, suma, resta, divide o compara dos números:</p>
+
+                    <p>Indique un número entero (a): <input id="variable_a" type="number"></p>
+                    <p>Indique un número entero (b): <input id="variable_b" type="number"></p>
+
+                    <button onclick="Multiplicacion()">Multiplicar</button>
+
+                    <button onclick="Suma()">Sumar</button>
+
+                    <button onclick="Resta()">Restar</button>
+
+                    <button onclick="Divide()">Dividir</button>
+
+                    <button onclick="Comparar()">Comparar</button>
+
+                    <button onclick="Raiz()">Raíz cuadrada de a</button>
+
+                    <button onclick="Circulo()">Área de circulo de radio a</button>
+
+                    <br></br>
+                    <h2 id="demo_resultado" style="font-weight: bold;">Resultado</h2>
+                    
+                </details>
+
+
+            </article>
+
+            <article class="entry">
+                <div class="entry-title"><a href="#">Objeto Date</a></div>
+                <div class="date">31 de enero, 2024</div>
+
+                <details>
+                    <summary><h2>Fecha</h2></summary>
+                    <p>Llama a la función que crea un objeto fecha:</p>
+
+                    <p>Indique el año: <input id="year" type="number"></p>
+                    <p>Indique el mes: <input id="month" type="number"></p>
+                    <p>Indique el día: <input id="day" type="number"></p>
+
+                    <button onclick="Fecha()">Generar la fecha</button>
+
+                    <h2 id="demo_fecha" style="font-weight: bold;">Fecha</h2>
+                    
+                </details>
+
+
+            </article>
+
+            
+        </main>
+
+        <footer id="footer">
+            <div id="footer-valid">
+                <credit>&copy; Derechos Reservados ISW-DAW UTN 
+                    Tarea 1 Geilyn Castro Chinchilla. 
+                </credit>
+            </div>
+        </footer>
+
+    </div>
+
+<script src="js.js"></script>
+</body>
+
+</html>
